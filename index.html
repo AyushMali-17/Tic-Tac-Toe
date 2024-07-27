@@ -1,16 +1,19 @@
-<!-- making this while watching YT and simultanously coding, may consume significant time , so pls dont judge on that  -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Tic Tac Toe</title>
+    <title>Advanced Tic Tac Toe</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Enhanced Tic Tac Toe</h1>
+        <h1>Advanced Tic Tac Toe</h1>
+        <div class="player-inputs">
+            <input type="text" id="playerX" placeholder="Player X Name">
+            <input type="text" id="playerO" placeholder="Player O Name">
+            <button id="startBtn">Start Game</button>
+        </div>
         <div id="board" class="board"></div>
         <div id="status" class="status"></div>
         <div class="controls">
@@ -18,8 +21,8 @@
             <button id="undoBtn">Undo Move</button>
         </div>
         <div class="score">
-            <span>X: <span id="scoreX">0</span></span>
-            <span>O: <span id="scoreO">0</span></span>
+            <span id="scoreXLabel">X: <span id="scoreX">0</span></span>
+            <span id="scoreOLabel">O: <span id="scoreO">0</span></span>
         </div>
         <div class="timer">
             <span>Time: <span id="timer">0</span> seconds</span>
