@@ -5,15 +5,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Enhanced Tic Tac Toe</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Tic Tac Toe</h1>
+        <h1>Enhanced Tic Tac Toe</h1>
         <div id="board" class="board"></div>
         <div id="status" class="status"></div>
-        <button id="restartBtn">Restart Game</button>
+        <div class="controls">
+            <button id="restartBtn">Restart Game</button>
+            <button id="undoBtn">Undo Move</button>
+        </div>
+        <div class="score">
+            <span>X: <span id="scoreX">0</span></span>
+            <span>O: <span id="scoreO">0</span></span>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
