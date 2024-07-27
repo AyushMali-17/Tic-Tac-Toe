@@ -4,12 +4,16 @@ const restartBtn = document.getElementById('restartBtn');
 const undoBtn = document.getElementById('undoBtn');
 const scoreX = document.getElementById('scoreX');
 const scoreO = document.getElementById('scoreO');
+const timer = document.getElementById('timer');
+const themeSelect = document.getEleme
+X: 0 ntById('themeSelect');
 
 let currentPlayer = 'X';
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let gameActive = true;
 let moveHistory = [];
 let scores = { X: 0, O: 0 };
+let startTime, interval;
 
 function createBoard() {
     for (let i = 0; i < 9; i++) {
@@ -34,9 +38,11 @@ function handleCellClick(e) {
             status.textContent = `Player ${currentPlayer} wins!`;
             gameActive = false;
             updateScore(currentPlayer);
+            stopTimer();
         } else if (checkDraw()) {
             status.textContent = "It's a draw!";
             gameActive = false;
+            stopTimer();
         } else {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
             status.textContent = `Player ${currentPlayer}'s turn`;
@@ -69,6 +75,7 @@ function restartGame() {
         cell.textContent = '';
         cell.classList.remove('x', 'o', 'pop');
     });
+    startTimer();
 }
 
 function undoMove() {
@@ -89,7 +96,27 @@ function updateScore(player) {
     scoreO.textContent = scores.O;
 }
 
+function startTimer() {
+    startTime = Date.now();
+    interval = setInterval(() => {
+        const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        timer.textContent = elapsedTime;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(interval);
+}
+
+function handleThemeChange() {
+    const theme = themeSelect.value;
+    document.documentElement.setAttribute('data-theme', theme);
+}
+
 createBoard();
 status.textContent = `Player ${currentPlayer}'s turn`;
 restartBtn.addEventListener('click', restartGame);
 undoBtn.addEventListener('click', undoMove);
+themeSelect.addEventListener('change', handleThemeChange);
+
+startTimer();

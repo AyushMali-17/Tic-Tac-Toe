@@ -5,7 +5,32 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --cell-bg-color: #f9f9f9;
+    --cell-border-color: #333;
+    --cell-hover-color: #e0e0e0;
+    --button-bg-color: #4CAF50;
+    --button-hover-color: #45a049;
+    --undo-button-bg-color: #3498db;
+    --undo-button-hover-color: #2980b9;
+}
+
+[data-theme="dark"] {
+    --bg-color: #333;
+    --text-color: #f0f0f0;
+    --cell-bg-color: #444;
+    --cell-border-color: #f0f0f0;
+    --cell-hover-color: #555;
+    --button-bg-color: #8BC34A;
+    --button-hover-color: #7CB342;
+    --undo-button-bg-color: #5DADE2;
+    --undo-button-hover-color: #5499C7;
 }
 
 .container {
@@ -17,7 +42,7 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -31,8 +56,8 @@ h1 {
 .cell {
     width: 100px;
     height: 100px;
-    background-color: #f9f9f9;
-    border: 2px solid #333;
+    background-color: var(--cell-bg-color);
+    border: 2px solid var(--cell-border-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +67,7 @@ h1 {
 }
 
 .cell:hover {
-    background-color: #e0e0e0;
+    background-color: var(--cell-hover-color);
 }
 
 .cell.x {
@@ -66,7 +91,7 @@ h1 {
 button {
     padding: 10px 20px;
     font-size: 1em;
-    background-color: #4CAF50;
+    background-color: var(--button-bg-color);
     color: white;
     border: none;
     cursor: pointer;
@@ -76,15 +101,15 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: var(--button-hover-color);
 }
 
 #undoBtn {
-    background-color: #3498db;
+    background-color: var(--undo-button-bg-color);
 }
 
 #undoBtn:hover {
-    background-color: #2980b9;
+    background-color: var(--undo-button-hover-color);
 }
 
 .score {
@@ -94,6 +119,15 @@ button:hover {
 
 .score span {
     margin: 0 10px;
+}
+
+.timer {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.theme-toggle {
+    margin-top: 20px;
 }
 
 @keyframes popIn {
